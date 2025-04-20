@@ -27,14 +27,14 @@ async def root():
 
 @app.get("/api/version")
 async def version():
-    return {"version": "0.3.1"}
+    return {"version": "0.3.3"}
 
 @app.get("/api/request/{id}")
 async def select_request(id: int):
     return await select_pokemon_request( id )
 
 @app.get("/api/request")
-async def select_all_reques():
+async def select_all_request():
     return await get_all_request()
 
 @app.post("/api/request")
