@@ -59,11 +59,11 @@ async def insert_pokemon_request(pokemon_request: PokeRequest) -> dict:
         raise HTTPException(status_code=500, detail="Internal Server Error")
     
 
-async def get_all_requests() -> dict:
+async def get_all_request() -> dict:
     query = """
                 SELECT 
                     r.id as ReportId,
-                    , s.decription as Status
+                    , s.description as Status
                     , r.type as PokemonType
                     , r.url
                     , r.created

@@ -5,7 +5,7 @@ docker run -d -p 8000:8000 --name pokeapi-container --env-file .env pokeapi:late
 az acr login --name acrpokequeue
 
 docker tag pokeapi:latest acrpokequeue.azurecr.io/pokeapi:latest
-docker tag pokeapi:latest acrpokequeue.azurecr.io/pokeapi:0.2.0
+docker tag pokeapi:latest acrpokequeue.azurecr.io/pokeapi:0.3.0
 
 docker push acrpokequeue.azurecr.io/pokeapi:latest
-docker push acrpokequeue.azurecr.io/pokeapi:0.2.0
+docker push acrpokequeue.azurecr.io/pokeapi:0.3.0
