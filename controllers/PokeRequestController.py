@@ -62,7 +62,7 @@ async def insert_pokemon_request(pokemon_request: PokeRequest) -> dict:
 async def get_all_request() -> dict:
     query = """
                 SELECT 
-                    r.id as ReportId,
+                    r.id as ReportId
                     , s.description as Status
                     , r.type as PokemonType
                     , r.url
