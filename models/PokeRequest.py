@@ -27,4 +27,10 @@ class PokeRequest(BaseModel):
         pattern = "^(sent|completed|failed|inprogress)$"
         )
     
+    sample_size: Optional[int] = Field(
+        default = None, 
+        gt = 0, 
+        description="Tamaño de la Muestra"
+        )
+    
     

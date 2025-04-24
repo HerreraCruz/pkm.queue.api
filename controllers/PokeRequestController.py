@@ -43,11 +43,11 @@ async def update_pokemon_request(pokemon_request: PokeRequest) -> dict:
 
 async def insert_pokemon_request(pokemon_request: PokeRequest) -> dict:
     try:
-        query = "exec pokequeue.create_poke_request ?"
-        params = (pokemon_request.pokemon_type,)
+        query = "exec pokequeue.create_poke_request ?, ?"
+        params = (pokemon_request.pokemon_type, pokemon_request.sample_size,)
         result = await execute_query_json(query, params, True)
         result_dict = json.loads(result)
-
+        print("result mf", result)
         await AQueue().insert_message_on_queue(result)
 
         return result_dict
@@ -67,6 +67,7 @@ async def get_all_request() -> dict:
                     , r.url
                     , r.created
                     , r.updated
+                    , r.sample_size
                 FROM pokequeue.requests r
                 INNER JOIN pokequeue.status s
                 ON r.id_status = s.id
